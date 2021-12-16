@@ -79,11 +79,8 @@ function reducer(state, { type, payload }) {
         currentOperand: state.currentOperand.slice(0, -1),
       }
     case ACTIONS.EVALUATE:
-      if (
-        state.operation == null ||
-        state.currentOperand == null ||
-        state.previousOperand == null
-      ) {
+      if (state.operation == null || state.currentOperand == null || state.previousOperand == null)
+      {
         return state
       }
 
@@ -98,13 +95,13 @@ function reducer(state, { type, payload }) {
 }
 
 function evaluate({ currentOperand, previousOperand, operation }) {
-  const prev = parseFloat(previousOperand)
-  const current = parseFloat(currentOperand)
+  const prev = (previousOperand)
+  const current = (currentOperand)
   if (isNaN(prev) || isNaN(current)) return ""
   let computation = ""
   switch (operation) {
     case "+":
-      computation = prev + current
+      computation = parseFloat(prev) + parseFloat(current)
       break
     case "-":
       computation = prev - current
